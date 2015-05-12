@@ -1,4 +1,4 @@
-(defproject rkworks/rohan "0.1.0-SNAPSHOT"
+(defproject rkworks/rohan "0.1.0"
   :description "Pagination library for Clojure web applications"
   :url "https://github.com/rkworks/rohan"
   :license {:name "Eclipse Public License"
