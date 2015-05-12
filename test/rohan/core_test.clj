@@ -108,73 +108,73 @@
       (fact "simple collection"
         (render (paginate req (range 1 6) {:page 3 :per-page 1}))
         => [:ul {:class "pagination"}
-            [:li nil [:a {:href "/?page=2"} "&laquo;"]]
+            [:li nil [:a {:href "/?page=2"} "«"]]
             [:li nil [:a {:href "/?page=1"} "1"]]
             [:li nil [:a {:href "/?page=2"} "2"]]
             [:li {:class "active"}
              [:a {:href "/?page=3"} "3"]]
             [:li nil [:a {:href "/?page=4"} "4"]]
             [:li nil [:a {:href "/?page=5"} "5"]]
-            [:li nil [:a {:href "/?page=4"} "&raquo;"]]])
+            [:li nil [:a {:href "/?page=4"} "»"]]])
       (fact "link attributes"
         (render (paginate req (range 1 3) {:page 1 :per-page 1}))
         => [:ul {:class "pagination"}
-            [:li {:class "disabled"} [:span  "&laquo;"]]
+            [:li {:class "disabled"} [:span  "«"]]
             [:li {:class "active"} [:a {:href "/?page=1"} "1"]]
             [:li nil [:a {:href "/?page=2"} "2"]]
-            [:li nil [:a {:href "/?page=2"} "&raquo;"]]]
+            [:li nil [:a {:href "/?page=2"} "»"]]]
         (render (paginate req (range 1 3) {:page 2 :per-page 1}))
         => [:ul {:class "pagination"}
-            [:li nil [:a {:href "/?page=1"} "&laquo;"]]
+            [:li nil [:a {:href "/?page=1"} "«"]]
             [:li nil [:a {:href "/?page=1"} "1"]]
             [:li {:class "active"} [:a {:href "/?page=2"} "2"]]
-            [:li {:class "disabled"} [:span "&raquo;"]]])
+            [:li {:class "disabled"} [:span "»"]]])
 
       (fact "sliding"
         (render (paginate req (range 1 6) {:page 1 :per-page 1 :window-size 0}))
         => [:ul {:class "pagination"}
-            [:li {:class "disabled"} [:span  "&laquo;"]]
+            [:li {:class "disabled"} [:span  "«"]]
             [:li {:class "active"} [:a {:href "/?page=1"} "1"]]
             [:li {:class "disabled"}
-             [:span "&hellip;"]]
+             [:span "…"]]
             [:li nil [:a {:href "/?page=5"} "5"]]
-            [:li nil [:a {:href "/?page=2"} "&raquo;"]]]
+            [:li nil [:a {:href "/?page=2"} "»"]]]
 
         (render (paginate req (range 1 6) {:page 2 :per-page 1 :window-size 0}))
         => [:ul {:class "pagination"}
-            [:li nil [:a {:href "/?page=1"} "&laquo;"]]
+            [:li nil [:a {:href "/?page=1"} "«"]]
             [:li nil [:a {:href "/?page=1"} "1"]]
             [:li {:class "active"} [:a {:href "/?page=2"} "2"]]
             [:li {:class "disabled"}
-             [:span "&hellip;"]]
+             [:span "…"]]
             [:li nil [:a {:href "/?page=5"} "5"]]
-            [:li nil [:a {:href "/?page=3"} "&raquo;"]]]
+            [:li nil [:a {:href "/?page=3"} "»"]]]
 
         (render (paginate req (range 1 6) {:page 3 :per-page 1 :window-size 0}))
         => [:ul {:class "pagination"}
-            [:li nil [:a {:href "/?page=2"} "&laquo;"]]
+            [:li nil [:a {:href "/?page=2"} "«"]]
             [:li nil [:a {:href "/?page=1"} "1"]]
             [:li nil [:a {:href "/?page=2"} "2"]]
             [:li {:class "active"} [:a {:href "/?page=3"} "3"]]
             [:li nil [:a {:href "/?page=4"} "4"]]
             [:li nil [:a {:href "/?page=5"} "5"]]
-            [:li nil [:a {:href "/?page=4"} "&raquo;"]]]
+            [:li nil [:a {:href "/?page=4"} "»"]]]
 
         (render (paginate req (range 1 6) {:page 4 :per-page 1 :window-size 0}))
         => [:ul {:class "pagination"}
-            [:li nil [:a {:href "/?page=3"} "&laquo;"]]
+            [:li nil [:a {:href "/?page=3"} "«"]]
             [:li nil [:a {:href "/?page=1"} "1"]]
             [:li {:class "disabled"}
-             [:span "&hellip;"]]
+             [:span "…"]]
             [:li {:class "active"} [:a {:href "/?page=4"} "4"]]
             [:li nil [:a {:href "/?page=5"} "5"]]
-            [:li nil [:a {:href "/?page=5"} "&raquo;"]]]
+            [:li nil [:a {:href "/?page=5"} "»"]]]
 
         (render (paginate req (range 1 6) {:page 5 :per-page 1 :window-size 0}))
         => [:ul {:class "pagination"}
-            [:li nil [:a {:href "/?page=4"} "&laquo;"]]
+            [:li nil [:a {:href "/?page=4"} "«"]]
             [:li nil [:a {:href "/?page=1"} "1"]]
             [:li {:class "disabled"}
-             [:span "&hellip;"]]
+             [:span "…"]]
             [:li {:class "active"} [:a {:href "/?page=5"} "5"]]
-            [:li {:class "disabled"} [:span "&raquo;"]]]))))
+            [:li {:class "disabled"} [:span "»"]]]))))
